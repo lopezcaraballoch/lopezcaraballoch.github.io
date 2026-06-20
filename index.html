@@ -78,14 +78,48 @@
         }
         .btn-linkedin:hover { background: #005987; }
         
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            font-size: 0.85em;
-            color: #718096;
-            background: #fff;
-            border-top: 1px solid #e2e8f0;
-            margin-top: 5px;
+/* ========================================================
+           AÑADIDO: Estilos para el diseño estilo Identificación 
+           ======================================================== */
+        .header-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px; /* Espacio entre el logo y el texto */
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left; 
+        }
+        .badge-col-logo img {
+            max-width: 75px; /* <--- Reducido aquí a 75px para que no sea gigante */
+            height: auto;
+            display: block;
+        }
+        .badge-col-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .badge-nombre {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #1a202c;
+            line-height: 1.2;
+            margin-bottom: 5px;
+        }
+        .badge-cargo {
+            font-size: 1.2em;
+            color: #16569e;
+            font-weight: bold;
+        }
+
+        /* Ajuste automático para móviles */
+        @media (max-width: 500px) {
+            .header-badge {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
         }
     </style>
     
