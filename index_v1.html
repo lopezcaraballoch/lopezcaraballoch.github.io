@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Hugo López Caraballo | Consultor en Ciencia de Datos & IA</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #2d3748;
+            background-color: #f7fafc;
+        }
+        header {
+            background: #fff;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 4px solid #16569e;
+        }
+        .container {
+            max-width: 850px;
+            margin: 30px auto;
+            padding: 25px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        h1 { margin: 10px 0 5px 0; color: #1a202c; font-size: 2em; }
+        .cargo { font-size: 1.25em; color: #16569e; font-weight: bold; margin-bottom: 5px; }
+        .perfil-resumen { color: #4a5568; max-width: 650px; margin: 25px auto 0 auto; font-size: 1.05em; text-align: center; }
+        h2 { color: #16569e; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; margin-top: 35px; }
+        
+        /* Listas globales */
+        ul { margin: 10px 0 15px 20px; line-height: 1.6; }
+
+        /* Bloques Desplegables */
+        details {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #16569e;
+            transition: all 0.3s ease;
+        }
+        details[open] {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            background: #fafbff;
+        }
+        summary {
+            font-weight: bold;
+            color: #2d3748;
+            cursor: pointer;
+            outline: none;
+            font-size: 1.1em;
+        }
+        .details-content { padding-top: 15px; }
+        .experiencia-contenido { padding: 15px 0; }
+        .proyecto-item { margin-top: 15px; }
+        .proyecto-item:not(:first-child) { margin-top: 20px; }
+        
+        /* Enlaces estándar */
+        .link-standard { color: #0077b5; text-decoration: underline; }
+        
+        /* Contenedores de Certificaciones y Habilidades */
+        .certificaciones-box { background-color: #f8f9fa; padding: 15px; border-left: 4px solid #1a5276; border-radius: 4px; margin-bottom: 30px; }
+        .certificaciones-note { margin-top: 10px; font-size: 0.95em; }
+        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; margin-top: 15px; }
+        .skill-badge { background-color: #eaf2f8; color: #1a5276; padding: 6px 12px; border-radius: 4px; font-weight: 500; font-size: 0.9em; }
+
+        /* Bloques de diseño y CTA */
+        .brand-box { text-align: center; margin: 30px 0; padding: 20px; background-color: #fafbff; border: 1px dashed #16569e; border-radius: 6px; }
+        .brand-img { max-width: 280px; height: auto; display: block; margin: 0 auto 10px auto; }
+        
+        .contacto-cierre { text-align: center; margin-top: 40px; }
+        .contacto-text { font-weight: bold; max-width: 700px; margin: 0 auto 20px auto; color: #1a202c; }
+        .contacto-email { margin: 10px 0 0 0; color: #4a5568; }
+
+        .cta-final { text-align: center; background-color: #f4f6f7; padding: 30px; border-radius: 8px; margin-top: 40px; border: 1px solid #e5e8e8; }
+        .cta-title { font-size: 1.15em; font-weight: bold; color: #1c2833; margin-bottom: 10px; }
+        .cta-desc { color: #566573; margin-bottom: 25px; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .cta-botones { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+        
+        /* Botones */
+        .btn-base { display: inline-block; padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.95em; color: white; transition: background 0.2s; }
+        .btn-linkedin { background-color: #0077b5; }
+        .btn-linkedin:hover { background-color: #005987; }
+        .btn-github { background-color: #24292e; }
+        .btn-github:hover { background-color: #16191c; }
+        .btn-email { background-color: #e74c3c; }
+        .btn-email:hover { background-color: #c0392b; }
+
+        /* Layout de Identificación */
+        .header-badge { display: flex; align-items: center; justify-content: center; gap: 25px; max-width: 700px; margin: 0 auto; text-align: left; }
+        .badge-col-logo img { max-width: 100px; height: auto; display: block; }
+        .badge-col-info { display: flex; flex-direction: column; justify-content: center; }
+        .badge-nombre { font-size: 1.8em; font-weight: bold; color: #1a202c; line-height: 1.2; margin-bottom: 5px; }
+        .badge-cargo { font-size: 1.2em; color: #16569e; font-weight: bold; }
+        
+        footer { padding: 20px; text-align: center; background-color: #edf2f7; color: #4a5568; font-size: 0.9em; margin-top: 5px; }
+
+        @media (max-width: 500px) {
+            .header-badge { flex-direction: column; text-align: center; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-badge">
+            <div class="badge-col-logo">
+                <img src="img/logo_1300_nombre_plano.jpg" alt="Logo CENTAT">
+            </div>
+            <div class="badge-col-info">
+                <div class="badge-nombre">López Caraballo Carlos Hugo</div>
+                <div class="badge-cargo">Consultor en Ciencia de Datos</div>
+            </div>
+        </div>
+        <p class="perfil-resumen">
+            Más de 19 años de trayectoria en investigación científica centrada en el análisis de datos, modelado descriptivo
+            y predictivo, optimización de sistemas y visualización analítica. Especializado en transformar datos técnicos y
+            estadísticos en soluciones operativas para entidades públicas y organizaciones privadas, prestando asimismo
+            soporte a equipos científicos y tecnológicos. Doctor en Astrofísica.
+        </p>
+    </header>
+
+    <div class="container">
+        <h2>Áreas de Impacto</h2>
+        <p>Colaboro de forma autónoma en entornos multidisciplinares. Actualmente centro mi actividad en el ámbito de
+            la Salud Pública, con especial foco en la Epidemiología, si bien desarrollo soluciones de modelización y
+            optimización aplicables a cualquier sector que requiera fundamentar sus decisiones en el análisis de datos.
+        </p>
+
+        <!-- Desplegable 1: Salud Pública -->
+        <details>
+            <summary>🏥 Salud Pública y Epidemiología</summary>
+            <div class="details-content">
+                <ul>
+                    <li><strong>Vigilancia del Cáncer del RPCC:</strong> Soporte metodológico y ejecución
+                        del análisis estadístico de la información del Registro Poblacional de Cáncer de Canarias (RPCC).</li>
+                    <li><strong>Optimización del Sistemas de Salud (Proyecto NAMASTE):</strong> Diseño de la base de
+                        datos y plataforma analítica sobre la disponibilidad de citas en los sistemas de salud de
+                        las Islas Canarias para mejorar la eficiencia en atención primaria.</li>
+                </ul>
+            </div>
+        </details>
+
+        <!-- Desplegable 2: Modelado Predictivo -->
+        <details>
+            <summary>🔮 Modelado Predictivo</summary>
+            <div class="details-content">
+                <ul>
+                    <li><strong>Predicción de Series Temporales:</strong> Aplicación de Machine Learning y Redes Neuronales para la
+                        predicción de variables con ruido y regímenes dinámicos no lineales.</li>
+                    <li><strong>Previsiones en Energía Renovable:</strong> Algoritmos para la predicción de velocidad del
+                        viento y generación eólica a 24 horas vista.</li>
+                </ul>
+            </div>
+        </details>
+
+        <!-- Desplegable 3: Inteligencia Artificial -->
+        <details>
+            <summary>🤖 Automatización</summary>
+            <div class="details-content">
+                <ul>
+                    <li><strong>Procesamiento de Imágenes con IA:</strong> Integración de modelos de OpenAI para la extracción automatizada de métricas a partir de imágenes (aplicado en el proyecto NAMASTE).</li>
+                    <li><strong>Pipelines ETL y calibración:</strong> Diseño de flujos técnicos de datos orientados a la toma de decisiones, que cubren el ciclo completo de los datos hasta su calibración y validación.</li>           
+                </ul>
+            </div>
+        </details>
+
+        <!-- Desplegable 4: Optimización de Sistemas -->
+        <details>
+            <summary>🛠️ Optimización de Sistemas</summary>
+            <div class="details-content">
+                <ul>
+                   <li><strong>Control de Errores Sistemáticos:</strong> Puesta a punto de sistemas de adquisición de datos y corrección de sesgos instrumentales (metodología desarrollada en proyectos internacionales de Astrofísica).</li>
+                    <li><strong>Inferencia Bayesiana:</strong> Modelización estadística y desarrollo de software bajo control de versiones (Git/GitHub).</li>
+                </ul>
+            </div>
+        </details>
+
+        <h2>Consultoría CENTAT</h2>
+        <p>En esta etapa como Consultor en Ciencia de Datos e Inteligencia Artificial nace <strong>CENTAT</strong>,
+            la marca que da identidad a mi actividad como profesional autónomo. Bajo este sello, englobo mi
+            disponibilidad para prestar servicios directamente a
+            <strong>entidades públicas y organizaciones privadas</strong>, ofreciendo asimismo soporte
+            especializado a equipos científicos y tecnológicos.
+        </p>
+        
+        <p>Mi objetivo es transformar datos estadísticos y técnicos en soluciones operativas. Mediante el modelado
+            descriptivo y predictivo, la automatización y la visualización analítica, facilito la toma de
+            decisiones basada en evidencias para instituciones y empresas. De ahí nace nuestro propósito
+            y eslogan: Convertimos datos en valor.</p>
+
+        <div class="brand-box">
+            <img src="img/CENTAT_llogo_nombre_slogan.jpg" alt="CENTAT - Convertimos datos en valor" class="brand-img">
+        </div>
+
+        <div class="contacto-cierre">
+            <p class="contacto-text">
+                ¿Enfrentas un desafío con tus datos, necesitas una evaluación técnica o buscas una colaboración institucional estratégica?
+            </p>
+            <a href="https://www.linkedin.com/in/carlos-hugo-lopez-caraballo/" class="btn-base btn-linkedin" target="_blank" rel="noopener noreferrer">
+                Contacta en LinkedIn
+            </a>
+            <p class="contacto-email">
+                O directamente vía email: <a href="mailto:lopezcaraballoch@gmail.com" class="link-standard">lopezcaraballoch@gmail.com</a>
+            </p>
+        </div>
+        
+        <h2>Experiencia Destacada</h2>
+
+        <!-- Bloque 1: Consultoría Técnica y Desarrollo Analítico — CENTAT -->
+        <details>
+            <summary>🚀 Consultoría Técnica & Desarrollo Analítico — CENTAT</summary>
+            <div class="experiencia-contenido">
+                <p><strong>Actividad en CENTAT (2026 - Presente):</strong></p>
+                
+                <div class="proyecto-item">
+                    <strong>Vigilancia del Cáncer de Canarias (RPCC & ISTAC)</strong>
+                    <p style="margin: 5px 0;">Soporte metodológico y ejecución del análisis estadístico de la información del Registro Poblacional de Cáncer de Canarias (RPCC) en colaboración con el Instituto Canario de Estadística (ISTAC).</p>
+                    <ul style="margin: 5px 0 15px 20px;">
+                        <li>Análisis estadístico de datos sanitarios para la extracción y monitorización de indicadores clave: Incidencia, Supervivencia y Prevalencia.</li>
+                        <li>Desarrollo de estimaciones, predicciones y proyecciones de la incidencia mediante el modelado de series temporales.</li>
+                    </ul>
+                </div>
+
+                <div class="proyecto-item">
+                    <strong>Innovación en Salud: Plataforma NAMASTE</strong>
+                    <p style="margin: 5px 0;">Desarrollo de la base de datos y plataforma analítica enfocada en la eficiencia de la atención primaria y la gestión de citas en el sistema de salud de las Islas Canarias.</p>
+                    <ul style="margin: 5px 0 0 20px;">
+                        <li>Ingeniería de datos (adquisición, limpieza y modelado) y visualización analítica mediante cuadros de mando.</li>
+                        <li>Uso de modelos de lenguaje (OpenAI) para la extracción automatizada de métricas e información desde imágenes.</li>
+                        <li>Código fuente y arquitectura del proyecto disponibles en el repositorio <a href="https://github.com/lopezcaraballoch/namasteLoad" target="_blank" rel="noopener noreferrer" class="link-standard">namasteLoad</a>.</li>
+                    </ul>
+                </div>
+            </div>
+        </details>
+
+        <!-- Bloque 2: Modelado Predictivo y Energía Renovable -->
+        <details>
+            <summary>📊 Modelado Predictivo & Energía Renovable</summary>
+            <div class="experiencia-contenido">
+                <p><strong>Proyectos de Investigación Aplicada:</strong></p>
+                
+                <div class="proyecto-item">
+                    <strong>Predicción Eólica</strong>
+                    <p style="margin: 5px 0;">Modelado y pronóstico a corto plazo (12 y 24 horas vista) de la velocidad del viento y su impacto en la producción de aerogeneradores utilizando datos meteorológicos de La Serena (Chile).</p>
+                    <ul style="margin: 5px 0 15px 20px;">
+                        <li>Implementación de Redes Neuronales Artificiales (ANN) con enfoque de back-propagation utilizando series temporales horarias de velocidad del viento, temperatura y humedad relativa.</li>
+                        <li>Estimación de la generación de energía eólica mediante la parametrización de curvas de potencia de los aerogeneradores.</li>
+                        <li>Publicación científica disponible en JSTOR: <a href="https://www.jstor.org/stable/90026395" target="_blank" rel="noopener noreferrer" class="link-standard">24-hours wind speed forecasting and wind power generation in La Serena (Chile)</a>.</li>
+                    </ul>
+                </div>
+
+                <div class="proyecto-item">
+                    <strong>Predicción de Series de Tiempo</strong>
+                    <p style="margin: 5px 0;">Modelado y pronóstico de sistemas dinámicos y series temporales complejas mediante algoritmos híbridos que combinan Redes Neuronales Artificiales (ANN) y Optimización por Enjambre de Partículas (PSO).</p>
+                    <ul style="margin: 5px 0 0 20px;">
+                        <li><strong>Modelado de Series Caóticas con Ruido:</strong> Desarrollo de un algoritmo estocástico híbrido (ANN+PSO) aplicado a la serie caótica de Mackey-Glass para evaluar el impacto del ruido blanco y cuantificar la incertidumbre en predicciones a corto y largo plazo. Publicaciones disponibles en <a href="https://onlinelibrary.wiley.com/doi/epdf/10.1155/2015/145874" target="_blank" rel="noopener noreferrer" class="link-standard">Wiley</a> y <a href="https://iopscience.iop.org/article/10.1088/1742-6596/720/1/012002" target="_blank" rel="noopener noreferrer" class="link-standard">IOPscience (Mackey-Glass)</a>.</li>
+                        <li><strong>Pronóstico de Índices Geomagnéticos:</strong> Aplicación de una red neuronal con retardo temporal optimizada con PSO (TDNN+PSO) para la predicción con una hora de antelación del índice geomagnético DST utilizando índices de electrochorro auroral. Publicación disponible en <a href="https://iopscience.iop.org/article/10.1088/1742-6596/720/1/012001" target="_blank" rel="noopener noreferrer" class="link-standard">IOPscience (DST index)</a>.</li>
+                    </ul>
+                </div>
+            </div>
+        </details>
+        
+    	<!-- Bloque 3: Investigación Científica: Astrofísica -->
+        <details>
+            <summary>🔬 Investigación Científica: Astrofísica</summary>
+            <div class="experiencia-contenido">
+                <p>Trayectoria como investigador postdoctoral y doctoral en el Instituto de Astrofísica de Canarias (IAC) y la Pontificia Universidad Católica de Chile. Procesamiento del ciclo completo de datos masivos en proyectos internacionales (QUIJOTE, STRIP, ACT, Simons Observatory) desde 2008:</p>
+                <ul style="margin: 10px 0 15px 20px;">
+                    <li>Diseño e implementación de herramientas de análisis de datos para la caracterización de instrumentos.</li>
+                    <li>Extracción de métricas clave a partir de conjuntos de datos multidimensionales para respaldar hallazgos científicos.</li>
+                    <li>Aplicación de inferencia Bayesiana (MCMC) y optimización para mejorar la estimación de parámetros espectrales.</li>
+                    <li>Implementación de códigos analíticos para el modelado de restricciones cosmológicas más allá del modelo estándar (&Lambda;CDM), evaluando escenarios teóricos con fluidos viscosos.</li>
+                    <li>Propuesta y validación de algoritmos de separación de componentes para mejorar la extracción de señales a partir de datos simulados del cielo.</li>
+                    <li>Desarrollo de herramientas de análisis de datos de código abierto y control de versiones con Git/GitHub.</li>
+                </ul>
+                <p style="margin-top: 15px;">La lista completa de mis publicaciones está disponible en el perfil de <a href="https://orcid.org/0000-0002-6439-5385" target="_blank" rel="noopener noreferrer" class="link-standard">ORCID 0002-6439-5385</a>.</p>
+            </div>
+        </details>
+
+        <!-- Bloque 4: Docencia Universitaria & Formación Superior -->
+        <details>
+            <summary>👨‍🏫 Docencia Universitaria & Formación Superior</summary>
+            <div class="experiencia-contenido">
+                <p>Docencia universitaria para los departamentos de Física, Astronomía y Matemáticas, acumulando más de 1120 horas dedicadas a la docencia y formación técnica superior:</p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Dirección y diseño de contenidos académicos alineados con la computación científica y el análisis avanzado de datos.</li>
+                    <li>Impartición de cursos de postgrado (Doctorado y Máster) en asignaturas de Cosmología Observacional y Técnicas Computacionales para el Análisis y Procesado de Datos.</li>
+                    <li>Cátedra universitaria en asignaturas de grado e ingenierías, incluyendo Cálculo Diferencial, Geometría Analítica, Mecánica y Teoría Electromagnética.</li>
+                    <li>Dictado de talleres de formación complementaria sobre el lenguaje de programación IDL y Técnicas de Modelado Aplicados a Cosmología.</li>
+                    <li>Supervisión y examen de tesis de grado y máster en la Universidad de La Laguna (España) y la Universidad de La Serena (Chile).</li>
+                </ul>
+            </div>
+        </details>
+
+        <!-- Bloque 5: Difusión Científica & Voluntariado -->
+        <details>
+            <summary>📢 Difusión Científica & Voluntariado</summary>
+            <div class="experiencia-contenido">
+                <p>Difusión de la ciencia, voluntariado y extensión comunitaria orientada a la formación, la concientización social y la educación inclusiva en diversos sectores de la sociedad, acumulando más de una docena de charlas de divulgación astronómica para público general:</p>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Planificación y ejecución del ciclo de charlas "Astrónomos por un día: Eclipse total 2019", impartido en colegios, centros educativos y aulas hospitalarias de la Región de Coquimbo.</li>
+                    <li>Impartición de la sesión formativa grabada para educadoras de párvulo de la Fundación Integra, enfocada en la enseñanza de la astronomía en la primera infancia: <a href="https://www.youtube.com/watch?v=_-r7uAyH9UY" target="_blank" rel="noopener noreferrer" class="link-standard">Astrónomos por un Día: Eclipse solar 2019</a>.</li>
+                    <li>Profesor voluntario de matemáticas en el Preuniversitario Popular José Huenante (Junta de Vecinos El Progreso, Santiago de Chile), brindando apoyo docente semanal a estudiantes de último año de educación media para la preparación del ingreso universitario.</li>
+                    <li>Voluntario en la Feria de Cooperativas Escolares del Proyecto "Enseñar para Emprender" (Fundación General de la Universidad de La Laguna), apoyando la logística del evento educativo orientado al emprendimiento escolar con fines benéficos en Tenerife.</li>
+                    <li>Conferencias invitadas de divulgación astronómica para público general, incluyendo "Top chef del universo: los secretos del cosmos escondidos en un microondas" en ciclos de extensión universitaria.</li>
+                </ul>
+            </div>
+        </details>
+
+        <!-- Sección: Formación Académica -->
+        <h2>Formación Académica</h2>
+        <ul>
+            <li><strong>Máster en Ciencia e Ingeniería de Datos</strong> – UNED (España) - En curso.</li>
+            <li><strong>Doctorado en Astrofísica</strong> – Instituto de Astrofísica de Canarias / ULL (España) - Sobresaliente Cum laude.</li>
+            <li><strong>Licenciatura en Física</strong> – Universidad de La Serena (Chile).</li>
+        </ul>
+
+        <!-- Desplegable de Certificaciones -->
+        <details class="certificaciones-box">
+            <summary style="font-weight: bold; cursor: pointer;">📜 Certificaciones y Cursos de Especialización</summary>
+            <ul>
+                <li><strong>Programación en SQL y Bases de Datos Relacionales</strong> – 200 h | DYM Canarias (2025)</li>
+                <li><strong>Power BI y Análisis de Datos</strong> – 30 h | Nextraining–SEPE (2025)</li>
+                <li><strong>Artificial Intelligence</strong> – 40 h | IBM–Datahack (2025)</li>
+                <li><strong>Programador Orientado a Big Data</strong> – 120 h | Asogestic (2020)</li>
+                <li><strong>Fundamentals of Agile Project Management</strong> – 10 h | Unikemia (2023)</li>
+            </ul>
+            <p class="certificaciones-note">La lista completa y verificada de certificaciones está disponible en mi perfil de <a href="https://www.linkedin.com/in/carlos-hugo-lopez-caraballo/" target="_blank" rel="noopener noreferrer" class="link-standard">LinkedIn</a>.</p>
+        </details>
+
+        <!-- Sección: Habilidades Técnicas -->
+        <h2>Habilidades Técnicas & Tecnologías</h2>
+        <div class="skills-container">
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">SQL</span>
+            <span class="skill-badge">Power BI</span>
+            <span class="skill-badge">Scikit-learn</span>
+            <span class="skill-badge">Pandas</span>
+            <span class="skill-badge">SciPy</span>
+            <span class="skill-badge">Git / GitHub</span>
+            <span class="skill-badge">Machine Learning</span>
+            <span class="skill-badge">Deep Learning</span>
+            <span class="skill-badge">Inferencia Bayesiana (MCMC)</span>
+            <span class="skill-badge">Time Series Forecasting</span>
+            <span class="skill-badge">ETL</span>
+        </div>
+
+        <!-- Sección de Cierre / CTA Profesional -->
+        <div class="cta-final">
+            <p class="cta-title">¿Tienes un desafío complejo de datos o buscas una colaboración estratégica?</p>
+            <p class="cta-desc">Conectemos para transformar problemas complejos en soluciones analíticas de alto impacto. Puedes revisar mis repositorios o escribirme directamente.</p>
+            
+            <div class="cta-botones">
+                <a href="https://www.linkedin.com/in/carlos-hugo-lopez-caraballo/" target="_blank" rel="noopener noreferrer" class="btn-base btn-linkedin">Conectar en LinkedIn</a>
+                <a href="https://github.com/lopezcaraballoch" target="_blank" rel="noopener noreferrer" class="btn-base btn-github">Ver Proyectos en GitHub</a>
+                <a href="mailto:lopezcaraballoch@gmail.com" class="btn-base btn-email">Contactar por Email</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Dr. Carlos Hugo López Caraballo &copy; 2026 | NIF: 16.882.551-E | Santa Cruz de Tenerife, España
+    </footer>
+
+</body>
+</html>
